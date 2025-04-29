@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hanifah Amany - Portofolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      animation: fadeDown 0.6s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+      animation: fadeUp 1s ease-in-out;
+    }
+
+    .about {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      color: #764ba2;
+      margin-bottom: 1rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(118, 75, 162, 0.3);
+    }
+
+    .project h3 {
+      color: #667eea;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 4rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact a {
+      color: #764ba2;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #667eea;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      animation: fadeIn 0.4s ease;
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: auto;
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 600px;
+      position: relative;
+      animation: zoomIn 0.4s ease;
+    }
+
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #333;
+    }
+
+    /* Animations */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hanifah Amany</h1>
+    <p>Web Developer | Mobile Enthusiast</p>
+  </header>
+
+  <div class="container">
+    <div class="about">
+      <h2>Tentang Saya</h2>
+      <p>Saya adalah pengembang web dengan fokus pada front-end development dan pengembangan aplikasi mobile. Memiliki passion menciptakan tampilan yang menarik dan fungsional.</p>
+    </div>
+
+    <h2>Projek Saya</h2>
+    <div class="projects">
+      <div class="project" onclick="openModal('project1')">
+        <h3>TourArena</h3>
+        <p>Platform turnamen Mobile Legends untuk memudahkan panitia dan peserta.</p>
+      </div>
+      <div class="project" onclick="openModal('project2')">
+        <h3>Presensi Face Recognition</h3>
+        <p>Aplikasi presensi berbasis pengenalan wajah untuk karyawan.</p>
+      </div>
+      <div class="project" onclick="openModal('project3')">
+        <h3>Rekomendasi Elektronik</h3>
+        <p>Sistem filter spesifikasi untuk rekomendasi alat elektronik.</p>
+      </div>
+      <div class="project" onclick="openModal('project4')">
+        <h3>Aplikasi Apa</h3>
+        <p>Bla bla bla balalajsjdhasd</p>
+      </div>
+    </div>
+
+    <div class="contact">
+      <h2>Hubungi Saya</h2>
+      <p>Email: <a href="mailto:hanifah@example.com">hanifah@example.com</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/hanifahamany" target="_blank">Hanifah Amany</a></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Hanifah Amany. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
+
+  <script>
+    const projectDetails = {
+      project1: {
+        title: "TourArena",
+        description: "TourArena adalah platform online yang memfasilitasi turnamen game Mobile Legends. Sebagai jembatan antara panitia dan peserta, platform ini menyediakan pendaftaran online, pengaturan jadwal, dan hasil pertandingan secara real-time."
+      },
+      project2: {
+        title: "Presensi Face Recognition",
+        description: "Aplikasi mobile untuk presensi karyawan menggunakan teknologi pengenalan wajah. Dikembangkan menggunakan Flutter dan terintegrasi dengan database untuk menyimpan data kehadiran."
+      },
+      project3: {
+        title: "Sistem Rekomendasi Elektronik",
+        description: "Website yang memberikan rekomendasi alat elektronik berdasarkan filter spesifikasi seperti RAM, harga, dan ukuran kamera. Dibangun menggunakan Laravel dan PostgreSQL."
+      },
+      project4: {
+        title: "Program Apa Saja",
+        description: "Lorem Ipsun Dolores Sit Amet Wow Cobain Apa Ni bang"
+      }
+    };
+
+    function openModal(projectId) {
+      document.getElementById('modalTitle').textContent = projectDetails[projectId].title;
+      document.getElementById('modalDescription').textContent = projectDetails[projectId].description;
+      document.getElementById('projectModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('projectModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('projectModal');
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
