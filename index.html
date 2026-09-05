@@ -1,257 +1,140 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hanifah Amany - Portofolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background: #f5f7fa;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      padding: 2rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      animation: fadeDown 0.6s ease-in-out;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-    }
-
-    header p {
-      margin-top: 0.5rem;
-      font-weight: 300;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 2rem;
-      animation: fadeUp 1s ease-in-out;
-    }
-
-    .about {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .about h2 {
-      font-size: 2rem;
-      color: #764ba2;
-      margin-bottom: 1rem;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .project {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(118, 75, 162, 0.3);
-    }
-
-    .project h3 {
-      color: #667eea;
-      margin-bottom: 0.5rem;
-    }
-
-    .contact {
-      text-align: center;
-      margin-top: 4rem;
-      background: white;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .contact a {
-      color: #764ba2;
-      text-decoration: none;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #667eea;
-      color: white;
-      margin-top: 2rem;
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      padding-top: 100px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      animation: fadeIn 0.4s ease;
-    }
-
-    .modal-content {
-      background-color: white;
-      margin: auto;
-      padding: 2rem;
-      border-radius: 1rem;
-      max-width: 600px;
-      position: relative;
-      animation: zoomIn 0.4s ease;
-    }
-
-    .close {
-      color: #aaa;
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    .close:hover {
-      color: #333;
-    }
-
-    /* Animations */
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes zoomIn {
-      from { transform: scale(0.7); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Portfolio of Hanifah Amany, a software developer focused on web and mobile products." />
+    <title>Hanifah Amany | Software Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header>
-    <h1>Hanifah Amany</h1>
-    <p>Web Developer | Mobile Enthusiast</p>
-  </header>
+    <header class="site-header">
+        <a class="brand" href="#home" aria-label="Go to home">HA<span>.</span></a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a class="nav-link is-active" href="#home">Home</a>
+            <a class="nav-link" href="#work">Work</a>
+            <a class="nav-link" href="#contact">Contact</a>
+        </nav>
+        <a class="header-status" href="#contact"><span></span></a>
+    </header>
 
-  <div class="container">
-    <div class="about">
-      <h2>Tentang Saya</h2>
-      <p>Saya adalah pengembang web dengan fokus pada front-end development dan pengembangan aplikasi mobile. Memiliki passion menciptakan tampilan yang menarik dan fungsional.</p>
+    <main>
+        <section class="page-section hero-section" id="home" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow">01 / Profile</p>
+                <h1 id="hero-title"><span id="heroTitleLead"></span><br /><em id="heroTitleAccent"></em></h1>
+                <p class="hero-intro" id="heroIntro"></p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#work">Explore my work <span aria-hidden="true">↗</span></a>
+                    <a class="text-link" href="#contact">Let's connect <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+            <div class="hero-aside" aria-label="Professional summary">
+                <div class="orbit-mark" aria-hidden="true"><span>HA</span></div>
+                <div class="hero-note">
+                    <span class="note-label">Currently focused on</span>
+                    <strong id="focusTitle"></strong>
+                </div>
+            </div>
+            <!-- <div class="scroll-cue" aria-hidden="true"><span></span> Scroll to explore</div> -->
+        </section>
+
+        <section class="page-section work-section" id="work" aria-labelledby="work-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">02 / Selected work</p>
+                    <h2 id="work-title">Projects &amp;<br /><em>experience.</em></h2>
+                </div>
+            </div>
+            <div class="education-block">
+                <div class="experience-title">
+                    <p class="eyebrow">Education</p>
+                    <h3>Academic foundation</h3>
+                </div>
+                <div class="education-item" id="educationContent"></div>
+            </div>
+            <div class="section-heading">
+                <div class="experience-title">
+                    <p class="eyebrow">Experience</p>
+                    <h3>Projects</h3>
+                </div>
+            </div>
+            <div class="project-grid" id="projectGrid"></div>
+            <div class="experience-block">
+                <div class="experience-title">
+                    <p class="eyebrow">Experience</p>
+                    <h3>How I work</h3>
+                </div>
+                <div class="experience-list" id="experienceList"></div>
+            </div>
+            <div class="organization-block">
+                <div class="experience-title">
+                    <p class="eyebrow">Organization</p>
+                    <h3>Behind the code</h3>
+                </div>
+                <div class="organization-list" id="organizationList"></div>
+            </div>
+            <div class="skills-block">
+                <div class="experience-title">
+                    <p class="eyebrow">Skills</p>
+                    <h3>Tools I use</h3>
+                </div>
+                <div class="skills-list" id="skillsList"></div>
+            </div>
+        </section>
+
+        <section class="page-section contact-section" id="contact" aria-labelledby="contact-title">
+            <div class="contact-copy">
+                <p class="eyebrow">03 / Contact</p>
+                <h2 id="contact-title">Have a good<br /><em>idea?</em></h2>
+                <p id="contactDescription"></p>
+                <a class="email-link" id="emailLink" href="mailto:"><span id="emailText"></span> <span
+                        aria-hidden="true">↗</span></a>
+            </div>
+            <div class="contact-panel">
+                <p class="panel-label">Find me elsewhere</p>
+                <div id="socialLinks"></div>
+                <p class="panel-label based-in-label">Based in</p>
+                <p class="location" id="location"></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        &copy; <span id="year"></span> <span id="footerName"></span>
+    </footer>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+        aria-hidden="true">
+        <div class="modal-content"><button class="modal-close" type="button"
+                aria-label="Close project details">×</button>
+            <p class="eyebrow">Case study</p>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
     </div>
-
-    <h2>Projek Saya</h2>
-    <div class="projects">
-      <div class="project" onclick="openModal('project1')">
-        <h3>TourArena</h3>
-        <p>Platform turnamen Mobile Legends untuk memudahkan panitia dan peserta.</p>
-      </div>
-      <div class="project" onclick="openModal('project2')">
-        <h3>Presensi Face Recognition</h3>
-        <p>Aplikasi presensi berbasis pengenalan wajah untuk karyawan.</p>
-      </div>
-      <div class="project" onclick="openModal('project3')">
-        <h3>Rekomendasi Elektronik</h3>
-        <p>Sistem filter spesifikasi untuk rekomendasi alat elektronik.</p>
-      </div>
-      <div class="project" onclick="openModal('project4')">
-        <h3>Aplikasi Apa</h3>
-        <p>Bla bla bla balalajsjdhasd</p>
-      </div>
+    <div class="modal" id="experienceModal" role="dialog" aria-modal="true" aria-labelledby="experienceModalTitle"
+        aria-hidden="true">
+        <div class="modal-content experience-modal-content">
+            <button class="modal-close experience-modal-close" type="button"
+                aria-label="Close experience details">×</button>
+            <p class="eyebrow">Experience detail</p>
+            <h2 id="experienceModalTitle"></h2>
+            <p class="experience-modal-company" id="experienceModalCompany"></p>
+            <p class="experience-modal-period" id="experienceModalPeriod"></p>
+            <ul class="experience-modal-list" id="experienceModalList"></ul>
+        </div>
     </div>
-
-    <div class="contact">
-      <h2>Hubungi Saya</h2>
-      <p>Email: <a href="mailto:hanifah@example.com">hanifah@example.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/hanifahamany" target="_blank">Hanifah Amany</a></p>
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Hanifah Amany. All rights reserved.</p>
-  </footer>
-
-  <!-- Modal -->
-  <div id="projectModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h2 id="modalTitle"></h2>
-      <p id="modalDescription"></p>
-    </div>
-  </div>
-
-  <script>
-    const projectDetails = {
-      project1: {
-        title: "TourArena",
-        description: "TourArena adalah platform online yang memfasilitasi turnamen game Mobile Legends. Sebagai jembatan antara panitia dan peserta, platform ini menyediakan pendaftaran online, pengaturan jadwal, dan hasil pertandingan secara real-time."
-      },
-      project2: {
-        title: "Presensi Face Recognition",
-        description: "Aplikasi mobile untuk presensi karyawan menggunakan teknologi pengenalan wajah. Dikembangkan menggunakan Flutter dan terintegrasi dengan database untuk menyimpan data kehadiran."
-      },
-      project3: {
-        title: "Sistem Rekomendasi Elektronik",
-        description: "Website yang memberikan rekomendasi alat elektronik berdasarkan filter spesifikasi seperti RAM, harga, dan ukuran kamera. Dibangun menggunakan Laravel dan PostgreSQL."
-      },
-      project4: {
-        title: "Program Apa Saja",
-        description: "Lorem Ipsun Dolores Sit Amet Wow Cobain Apa Ni bang"
-      }
-    };
-
-    function openModal(projectId) {
-      document.getElementById('modalTitle').textContent = projectDetails[projectId].title;
-      document.getElementById('modalDescription').textContent = projectDetails[projectId].description;
-      document.getElementById('projectModal').style.display = 'block';
-    }
-
-    function closeModal() {
-      document.getElementById('projectModal').style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-      const modal = document.getElementById('projectModal');
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-  </script>
+    <script src="script.js"></script>
 </body>
+
 </html>
