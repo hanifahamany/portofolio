@@ -7,10 +7,6 @@ const projectDetails = {
         title: 'Presensia',
         description: 'A Flutter mobile app for employee attendance using face recognition. The product combines a focused check-in flow with dependable data integration for teams and administrators.'
     },
-    specfinder: {
-        title: 'SpecFinder',
-        description: 'A recommendation system for electronics that turns dense product specifications into a simple filtering experience. Users can compare options based on the details that matter to them.'
-    },
     siskom: {
         title: 'SISKOM – Sistem Rekomendasi Jurnal Terindeks SINTA',
         description: 'A full-stack research project with a Python scraping pipeline, NLP semantic vectors, pgvector cosine similarity search, and a hybrid preprocessing flow using the DeepL API.'
@@ -91,14 +87,6 @@ const portfolioData = {
             title: 'Presensia',
             description: 'A face recognition attendance app designed to help teams record employee presence with less friction.',
             tags: ['Flutter', 'Dart', 'API integration']
-        },
-        {
-            id: 'specfinder',
-            number: '03',
-            category: 'Recommendation system',
-            title: 'SpecFinder',
-            description: 'A focused product discovery experience that helps people compare electronics through meaningful specifications.',
-            tags: ['CodeIgniter', 'UX research', 'Filters']
         },
         {
             id: 'sirw',
