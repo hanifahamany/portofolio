@@ -94,7 +94,7 @@ const portfolioData = {
             title: 'Presensia',
             description: 'A face recognition attendance app designed to help teams record employee presence with less friction.',
             tags: ['Flutter', 'Dart', 'API integration'],
-            github: 'https://github.com/hanifahamany'
+            github: 'https://github.com/hanifahamany/presensia'
         },
         {
             id: 'sirw',
@@ -103,7 +103,7 @@ const portfolioData = {
             title: 'SIRW',
             description: 'A responsive neighborhood information system designed around clear interfaces, user research, and API integration.',
             tags: ['Laravel', 'Figma', 'FastAPI'],
-            github: 'https://github.com/hanifahamany'
+            github: 'https://github.com/hanifahamany/Sistem_Informasi_RW'
         },
         {
             id: 'tata-tertib',
@@ -112,7 +112,7 @@ const portfolioData = {
             title: 'Sistem Tata Tertib Mahasiswa',
             description: 'A student regulation management website with interactive features and responsive cross-browser support.',
             tags: ['HTML/CSS', 'JavaScript', 'Responsive'],
-            github: 'https://github.com/hanifahamany'
+            github: 'https://github.com/RizkyArifiansyah/Tatib_2G'
         },
         {
             id: 'odoo-custom',
@@ -209,7 +209,7 @@ function renderPortfolioData() {
             <div class="project-topline"><span>${project.number}</span><span>${project.category}</span></div>
             <h3>${project.title}</h3>
             <p>${project.description}</p>
-            <button class="project-link project-trigger" data-project="${project.id}">View case study <span aria-hidden="true">↗</span></button>
+            <button class="project-link project-trigger" data-project="${project.id}">Click for more <span aria-hidden="true">↗</span></button>
             <div class="project-tags">${project.tags.map((tag) => `<span>${tag}</span>`).join('')}</div>
         </article>`).join('');
 
