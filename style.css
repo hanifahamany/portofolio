@@ -789,6 +789,25 @@ footer {
     font-size: .9rem;
 }
 
+.modal-github-link {
+    border-bottom: 2px solid var(--ink);
+    display: inline-flex;
+    font: 700 .78rem 'Space Grotesk', sans-serif;
+    gap: .8rem;
+    margin-top: 2rem;
+    padding-bottom: .4rem;
+    text-transform: uppercase;
+    transition: transform .2s ease;
+}
+
+.modal-github-link:hover {
+    transform: translateX(5px);
+}
+
+.modal-github-link span {
+    font-size: 1.1rem;
+}
+
 .modal-close {
     background: none;
     border: 0;

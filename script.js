@@ -1,27 +1,33 @@
 const projectDetails = {
-    tourarena: {
-        title: 'TourArena',
-        description: 'A tournament management platform that connects organizers and players through online registration, match scheduling, and real-time results. The experience was shaped around reducing manual coordination for every match.'
-    },
     presensia: {
         title: 'Presensia',
-        description: 'A Flutter mobile app for employee attendance using face recognition. The product combines a focused check-in flow with dependable data integration for teams and administrators.'
+        description: 'A Flutter mobile app for employee attendance using face recognition. The product combines a focused check-in flow with dependable data integration for teams and administrators.',
+        github: 'https://github.com/hanifahamany'
     },
     siskom: {
         title: 'SISKOM – Sistem Rekomendasi Jurnal Terindeks SINTA',
-        description: 'A full-stack research project with a Python scraping pipeline, NLP semantic vectors, pgvector cosine similarity search, and a hybrid preprocessing flow using the DeepL API.'
+        description: 'A personal full-stack research project with a Python scraping pipeline, NLP semantic vectors, pgvector cosine similarity search, and a hybrid preprocessing flow using the DeepL API.',
+        github: 'https://github.com/hanifahamany'
     },
     sirw: {
         title: 'SIRW – Sistem Informasi RW',
-        description: 'A neighborhood information system designed in Figma and built with Laravel. The project included user research, usability testing, responsive interfaces, and FastAPI integration.'
+        description: 'A neighborhood information system designed in Figma and built with Laravel. The project included user research, usability testing, responsive interfaces, and FastAPI integration.',
+        github: 'https://github.com/hanifahamany'
     },
     'tata-tertib': {
         title: 'Sistem Tata Tertib Mahasiswa',
-        description: 'A user-friendly website for managing student regulations efficiently, with interactive features built using HTML, CSS, and JavaScript and tested for mobile and cross-browser compatibility.'
+        description: 'A user-friendly website for managing student regulations efficiently, with interactive features built using HTML, CSS, and JavaScript and tested for mobile and cross-browser compatibility.',
+        github: 'https://github.com/hanifahamany'
     },
     'ce-es': {
         title: 'Ce-eS – Cashier System',
-        description: 'A Java-based restaurant cashier application with algorithms for order processing, payment handling, and transaction reporting through a simple interface.'
+        description: 'A Java-based restaurant cashier application with algorithms for order processing, payment handling, and transaction reporting through a simple interface.',
+        github: 'https://github.com/hanifahamany'
+    },
+    'odoo-custom': {
+        title: 'Odoo 18 Customization',
+        description: 'A project involving frontend and backend customization of the Odoo 18 system, including PDF printout module design, data processing with Python in Google Colab, and feature testing for Odoo 17 and 18.',
+        github: 'https://github.com/hanifahamany'
     }
 };
 
@@ -78,7 +84,8 @@ const portfolioData = {
             category: 'Research platform',
             title: 'SISKOM',
             description: 'A SINTA-indexed journal recommendation system powered by scraping, NLP vectors, and semantic document search.',
-            tags: ['Python', 'NLP', 'pgvector']
+            tags: ['Laravel', 'DeepL', 'Python', 'NLP', 'PostgreSQL'],
+            github: 'https://github.com/hanifahamany'
         },
         {
             id: 'presensia',
@@ -86,7 +93,8 @@ const portfolioData = {
             category: 'Mobile app',
             title: 'Presensia',
             description: 'A face recognition attendance app designed to help teams record employee presence with less friction.',
-            tags: ['Flutter', 'Dart', 'API integration']
+            tags: ['Flutter', 'Dart', 'API integration'],
+            github: 'https://github.com/hanifahamany'
         },
         {
             id: 'sirw',
@@ -94,7 +102,8 @@ const portfolioData = {
             category: 'Web application',
             title: 'SIRW',
             description: 'A responsive neighborhood information system designed around clear interfaces, user research, and API integration.',
-            tags: ['Laravel', 'Figma', 'FastAPI']
+            tags: ['Laravel', 'Figma', 'FastAPI'],
+            github: 'https://github.com/hanifahamany'
         },
         {
             id: 'tata-tertib',
@@ -102,7 +111,17 @@ const portfolioData = {
             category: 'Web application',
             title: 'Sistem Tata Tertib Mahasiswa',
             description: 'A student regulation management website with interactive features and responsive cross-browser support.',
-            tags: ['HTML/CSS', 'JavaScript', 'Responsive']
+            tags: ['HTML/CSS', 'JavaScript', 'Responsive'],
+            github: 'https://github.com/hanifahamany'
+        },
+        {
+            id: 'odoo-custom',
+            number: '05',
+            category: 'Software Engineering',
+            title: 'Odoo 18 Customization',
+            description: 'Frontend and backend system customization for Odoo 18, including complex data processing workflows.',
+            tags: ['Odoo 18', 'Python', 'Google Colab'],
+            github: 'https://github.com/hanifahamany'
         }
     ],
     experience: [
@@ -286,6 +305,7 @@ renderPortfolioData();
 const modal = document.getElementById('projectModal');
 const modalTitle = document.getElementById('modalTitle');
 const modalDescription = document.getElementById('modalDescription');
+const modalGithubLink = document.getElementById('modalGithubLink');
 const experienceModal = document.getElementById('experienceModal');
 const experienceModalTitle = document.getElementById('experienceModalTitle');
 const experienceModalCompany = document.getElementById('experienceModalCompany');
@@ -297,6 +317,8 @@ function openModal(projectId) {
     if (!project) return;
     modalTitle.textContent = project.title;
     modalDescription.textContent = project.description;
+    modalGithubLink.href = project.github;
+    modalGithubLink.hidden = !project.github;
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
