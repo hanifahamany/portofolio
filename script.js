@@ -152,10 +152,10 @@ const portfolioData = {
     ],
     skills: [
         { name: 'Languages', description: 'Python, PHP, JavaScript, Java, Dart' },
-        { name: 'Engineering', description: 'Algorithms & Data Structures, OOP, MVC Architecture, Agile, Sprint Planning, UAT' },
-        { name: 'AI & data', description: 'NLP, Machine Learning, Vector Embedding, Text Preprocessing, DeepL API, pgvector' },
         { name: 'Frontend & mobile', description: 'HTML/CSS, Tailwind CSS, React, TypeScript, Flutter, Figma' },
         { name: 'Backend & databases', description: 'Laravel, CodeIgniter, REST API, FastAPI, Odoo 17/18, PostgreSQL, MySQL, SQL optimization' },
+        { name: 'Engineering', description: 'Algorithms & Data Structures, OOP, MVC Architecture, Agile, Sprint Planning, UAT' },
+        { name: 'AI & data', description: 'NLP, Machine Learning, Vector Embedding, Text Preprocessing, DeepL API, pgvector' },
         { name: 'Tools', description: 'Git/GitHub, GitHub Copilot, Cursor, Claude, Linux, Windows' }
     ]
 };
@@ -218,7 +218,67 @@ function renderPortfolioData() {
 
     document.getElementById('skillsList').innerHTML = portfolioData.skills.map((skill) => `
         <p><strong>${skill.name}</strong>${skill.description}</p>`).join('');
+
+    updateProjectSliderControls();
 }
+
+const projectSlider = document.getElementById('projectSlider');
+const projectScrollPrev = document.querySelector('.project-scroll-prev');
+const projectScrollNext = document.querySelector('.project-scroll-next');
+
+function updateProjectSliderControls() {
+    const projectCount = document.querySelectorAll('.project-card').length;
+    const sliderButtons = document.querySelector('.project-slider-buttons');
+    if (sliderButtons) {
+        sliderButtons.classList.toggle('is-visible', projectCount > 3);
+    }
+}
+
+function getProjectScrollStep() {
+    if (!projectSlider) return 320;
+    const projectGrid = projectSlider.querySelector('.project-grid');
+    const firstCard = projectSlider.querySelector('.project-card');
+    const styles = projectGrid ? getComputedStyle(projectGrid) : getComputedStyle(projectSlider);
+    const gap = Number.parseFloat(styles.gap || '0');
+    const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : 320;
+    return Number.isFinite(gap) ? cardWidth + gap : cardWidth;
+}
+
+function scrollProjectSlider(direction) {
+    if (!projectSlider) return;
+    projectSlider.scrollBy({ left: getProjectScrollStep() * direction, behavior: 'smooth' });
+}
+
+let dragStartX = 0;
+let dragStartScrollLeft = 0;
+let isDraggingSlider = false;
+
+projectSlider?.addEventListener('pointerdown', (event) => {
+    isDraggingSlider = true;
+    dragStartX = event.clientX;
+    dragStartScrollLeft = projectSlider.scrollLeft;
+    projectSlider.classList.add('is-dragging');
+    projectSlider.setPointerCapture(event.pointerId);
+});
+
+projectSlider?.addEventListener('pointermove', (event) => {
+    if (!isDraggingSlider) return;
+    const deltaX = event.clientX - dragStartX;
+    projectSlider.scrollLeft = dragStartScrollLeft - deltaX;
+});
+
+projectSlider?.addEventListener('pointerup', () => {
+    isDraggingSlider = false;
+    projectSlider.classList.remove('is-dragging');
+});
+
+projectSlider?.addEventListener('pointerleave', () => {
+    isDraggingSlider = false;
+    projectSlider.classList.remove('is-dragging');
+});
+
+projectScrollPrev?.addEventListener('click', () => scrollProjectSlider(-1));
+projectScrollNext?.addEventListener('click', () => scrollProjectSlider(1));
 
 renderPortfolioData();
 
@@ -271,6 +331,14 @@ function closeExperienceModal() {
 
 document.querySelectorAll('.project-trigger').forEach((trigger) => {
     trigger.addEventListener('click', () => openModal(trigger.dataset.project));
+});
+
+document.querySelectorAll('.project-card').forEach((card) => {
+    card.addEventListener('click', (event) => {
+        if (event.target.closest('.project-trigger')) return;
+        const projectId = card.querySelector('.project-trigger')?.dataset.project;
+        if (projectId) openModal(projectId);
+    });
 });
 
 document.querySelector('.modal-close').addEventListener('click', closeModal);

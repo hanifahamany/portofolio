@@ -303,10 +303,76 @@ h2 {
     max-width: 285px;
 }
 
-.project-grid {
-    display: grid;
+.project-slider-controls {
+    align-items: end;
+    display: flex;
     gap: 1rem;
-    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.project-slider-buttons {
+    display: none;
+    gap: .75rem;
+}
+
+.project-slider-buttons.is-visible {
+    display: flex;
+}
+
+.project-scroll-button {
+    align-items: center;
+    background: rgba(17, 24, 32, .96);
+    border: 1px solid rgba(17, 24, 32, .08);
+    border-radius: 999px;
+    box-shadow: 0 8px 18px rgba(17, 24, 32, .08);
+    color: var(--white);
+    cursor: pointer;
+    display: inline-flex;
+    height: 2.9rem;
+    justify-content: center;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    width: 2.9rem;
+}
+
+.project-scroll-button svg {
+    fill: currentColor;
+    height: 1.15rem;
+    width: 1.15rem;
+}
+
+.project-scroll-button:hover {
+    background: var(--lime);
+    box-shadow: 0 10px 20px rgba(200, 241, 96, .24);
+    color: var(--ink);
+    transform: translateY(-1px);
+}
+
+.project-slider {
+    cursor: grab;
+    overflow-x: auto;
+    padding-bottom: .5rem;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    touch-action: pan-y;
+    user-select: none;
+}
+
+.project-slider.is-dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+}
+
+.project-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.project-grid {
+    display: flex;
+    gap: 1rem;
+    min-width: max-content;
+    width: max-content;
+    scroll-snap-type: x proximity;
 }
 
 .project-card {
@@ -314,8 +380,11 @@ h2 {
     border: 1px solid var(--line);
     display: flex;
     flex-direction: column;
+    flex: 0 0 clamp(260px, 32vw, 360px);
     min-height: 360px;
+    min-width: 260px;
     padding: 1.5rem;
+    scroll-snap-align: start;
     transition: background .2s ease, transform .2s ease;
 }
 
@@ -1177,12 +1246,24 @@ footer {
         margin-top: 2rem;
     }
 
+    .project-slider-controls {
+        align-items: center;
+    }
+
+    .project-slider-buttons {
+        margin-left: auto;
+    }
+
     .project-grid {
-        grid-template-columns: 1fr;
+        gap: .8rem;
+        grid-template-columns: none;
     }
 
     .project-card {
+        flex-basis: 82vw;
         min-height: 330px;
+        min-width: 82vw;
+        width: 82vw;
     }
 
     .experience-block {
