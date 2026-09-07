@@ -2,27 +2,22 @@ const projectDetails = {
     presensia: {
         title: 'Presensia',
         description: 'A Flutter mobile app for employee attendance using face recognition. The product combines a focused check-in flow with dependable data integration for teams and administrators.',
-        github: 'https://github.com/hanifahamany'
+        github: 'https://github.com/hanifahamany/presensia'
     },
     siskom: {
         title: 'SISKOM – Sistem Rekomendasi Jurnal Terindeks SINTA',
         description: 'A personal full-stack research project with a Python scraping pipeline, NLP semantic vectors, pgvector cosine similarity search, and a hybrid preprocessing flow using the DeepL API.',
-        github: 'https://github.com/hanifahamany'
+        github: 'https://github.com/hanifahamany/siskom'
     },
     sirw: {
         title: 'SIRW – Sistem Informasi RW',
         description: 'A neighborhood information system designed in Figma and built with Laravel. The project included user research, usability testing, responsive interfaces, and FastAPI integration.',
-        github: 'https://github.com/hanifahamany'
+        github: 'https://github.com/hanifahamany/Sistem_Informasi_RW'
     },
     'tata-tertib': {
         title: 'Sistem Tata Tertib Mahasiswa',
         description: 'A user-friendly website for managing student regulations efficiently, with interactive features built using HTML, CSS, and JavaScript and tested for mobile and cross-browser compatibility.',
-        github: 'https://github.com/hanifahamany'
-    },
-    'ce-es': {
-        title: 'Ce-eS – Cashier System',
-        description: 'A Java-based restaurant cashier application with algorithms for order processing, payment handling, and transaction reporting through a simple interface.',
-        github: 'https://github.com/hanifahamany'
+        github: 'https://github.com/RizkyArifiansyah/Tatib_2G'
     },
     'odoo-custom': {
         title: 'Odoo 18 Customization',
@@ -94,7 +89,7 @@ const portfolioData = {
             title: 'Presensia',
             description: 'A face recognition attendance app designed to help teams record employee presence with less friction.',
             tags: ['Flutter', 'Dart', 'API integration'],
-            github: 'https://github.com/hanifahamany/presensia'
+            github: 'https://github.com/hanifahamany/'
         },
         {
             id: 'sirw',
@@ -103,7 +98,7 @@ const portfolioData = {
             title: 'SIRW',
             description: 'A responsive neighborhood information system designed around clear interfaces, user research, and API integration.',
             tags: ['Laravel', 'Figma', 'FastAPI'],
-            github: 'https://github.com/hanifahamany/Sistem_Informasi_RW'
+            github: 'https://github.com/hanifahamany'
         },
         {
             id: 'tata-tertib',
