@@ -254,6 +254,7 @@ let dragStartScrollLeft = 0;
 let isDraggingSlider = false;
 
 projectSlider?.addEventListener('pointerdown', (event) => {
+    if (event.pointerType !== 'touch') return;
     isDraggingSlider = true;
     dragStartX = event.clientX;
     dragStartScrollLeft = projectSlider.scrollLeft;
@@ -262,7 +263,7 @@ projectSlider?.addEventListener('pointerdown', (event) => {
 });
 
 projectSlider?.addEventListener('pointermove', (event) => {
-    if (!isDraggingSlider) return;
+    if (event.pointerType !== 'touch' || !isDraggingSlider) return;
     const deltaX = event.clientX - dragStartX;
     projectSlider.scrollLeft = dragStartScrollLeft - deltaX;
 });
