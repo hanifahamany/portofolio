@@ -378,6 +378,7 @@ h2 {
 .project-card {
     background: var(--paper-bright);
     border: 1px solid var(--line);
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     flex: 0 0 clamp(260px, 32vw, 360px);

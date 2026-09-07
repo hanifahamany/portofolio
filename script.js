@@ -58,7 +58,7 @@ const portfolioData = {
         focus: 'Full-stack Web<br>&amp; Mobile Development'
     },
     contact: {
-        description: 'Let’s make it useful, clear, and beautifully built. Tell me a little about what you are working on.',
+        description: ' ',
         email: 'hanifahamany@yahoo.com',
         location: 'Indonesia',
         social: [
@@ -74,7 +74,7 @@ const portfolioData = {
     projects: [
         {
             id: 'siskom',
-            number: '04',
+            number: '01',
             category: 'Research platform',
             title: 'SISKOM',
             description: 'A SINTA-indexed journal recommendation system powered by scraping, NLP vectors, and semantic document search.',
@@ -90,7 +90,7 @@ const portfolioData = {
         },
         {
             id: 'sirw',
-            number: '05',
+            number: '03',
             category: 'Web application',
             title: 'SIRW',
             description: 'A responsive neighborhood information system designed around clear interfaces, user research, and API integration.',
@@ -98,9 +98,9 @@ const portfolioData = {
         },
         {
             id: 'tata-tertib',
-            number: '06',
+            number: '04',
             category: 'Web application',
-            title: 'Tata Tertib Mahasiswa',
+            title: 'Sistem Tata Tertib Mahasiswa',
             description: 'A student regulation management website with interactive features and responsive cross-browser support.',
             tags: ['HTML/CSS', 'JavaScript', 'Responsive']
         }
@@ -186,7 +186,7 @@ function renderPortfolioData() {
         </div>`;
 
     document.getElementById('projectGrid').innerHTML = portfolioData.projects.map((project) => `
-        <article class="project-card">
+        <article class="project-card" data-project="${project.id}" role="button" tabindex="0" aria-label="View case study for ${project.title}">
             <div class="project-topline"><span>${project.number}</span><span>${project.category}</span></div>
             <h3>${project.title}</h3>
             <p>${project.description}</p>
@@ -334,10 +334,22 @@ document.querySelectorAll('.project-trigger').forEach((trigger) => {
 });
 
 document.querySelectorAll('.project-card').forEach((card) => {
+    const open = () => {
+        const projectId = card.dataset.project;
+        if (projectId) openModal(projectId);
+    };
+
     card.addEventListener('click', (event) => {
         if (event.target.closest('.project-trigger')) return;
-        const projectId = card.querySelector('.project-trigger')?.dataset.project;
-        if (projectId) openModal(projectId);
+        open();
+    });
+
+    card.addEventListener('keydown', (event) => {
+        if (event.target.closest('.project-trigger')) return;
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            open();
+        }
     });
 });
 
